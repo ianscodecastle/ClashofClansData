@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 
 headers = {
-    'authorization': creds.my_key,
+    'authorization': creds.desktop_key,
     'Accept': 'application/json',
 }
 
@@ -12,3 +12,5 @@ user_json = response.json()
 #print(user_json)
 
 df = pd.json_normalize(user_json)
+player_stats = df.loc[:, ['name', 'townHallLevel', 'attackWins', 'defenseWins']]
+print(player_stats)
